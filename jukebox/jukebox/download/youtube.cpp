@@ -57,7 +57,7 @@ web::WebFuture getMetadata(const std::string& id) {
     timeout = std::max(timeout, 30);
 
     return web::WebRequest()
-        .timeout(std::chrono::seconds(timeout))
+        .timeout(asp::Duration::fromSecs(timeout))
         .bodyJSON(
             matjson::makeObject({
                 {"url", fmt::format("https://www.youtube.com/watch?v={}", id)},
