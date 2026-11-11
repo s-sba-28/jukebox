@@ -278,6 +278,8 @@ Future<Result<>> IndexManager::fetchIndexes() {
 Future<Result<std::optional<matjson::Value>>> IndexManager::fetchIndex(const IndexSource& index, bool forceFresh) {
     int timeout = Mod::get()->getSettingValue<bool>("request-timeout");
 
+    web::WebRequest request = web::WebRequest();
+    
     if (!forceFresh) {
         if (auto etag = this->etagForIndex(index.m_url)) {
             log::debug("Attempting If-None-Match for index {} (header={})", index.m_url, *etag);
