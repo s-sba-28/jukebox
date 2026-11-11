@@ -338,6 +338,7 @@ void NongList::build() {
             }
         }
     }
+    m_list->m_contentLayer->setContentWidth(m_list->getContentWidth());
     m_list->m_contentLayer->updateLayout();
     this->scrollToTop();
 }
