@@ -10,7 +10,7 @@ jobs:
   build:
     strategy:
       fail-fast: false
-            matrix:
+      matrix:
         config:
           - name: Android64
             os: ubuntu-latest
